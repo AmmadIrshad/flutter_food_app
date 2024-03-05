@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food_app/delivery_status_screen/delivery_status.dart';
 import 'package:food_app/home_screen/home_screen_1.dart';
 import 'package:food_app/order_compelete/input_field.dart';
 import 'package:food_app/order_compelete/primary_orderbutton.dart';
@@ -49,20 +50,20 @@ class _OrderCompleteState extends State<OrderComplete> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  Text("Your delivery address"),
-                  SizedBox(
+                  const Text("Your delivery address"),
+                  const SizedBox(
                     height: 10,
                   ),
-                  InputField(text: "10th avenue lekki, lagos"),
-                  SizedBox(
+                  const InputField(text: "10th avenue lekki, lagos"),
+                  const SizedBox(
                     height: 10,
                   ),
-                  Text("Number we can call"),
-                  SizedBox(
+                  const Text("Number we can call"),
+                  const SizedBox(
                     height: 10,
                   ),
-                  InputField(text: "09090909090"),
-                  SizedBox(
+                  const InputField(text: "09090909090"),
+                  const SizedBox(
                     height: 20,
                   ),
                   Row(
@@ -70,15 +71,15 @@ class _OrderCompleteState extends State<OrderComplete> {
                     children: [
                       SizedBox(
                         width: MediaQuery.of(context).size.width * 0.3,
-                        child: Text("Date"),
+                        child: const Text("Date"),
                       ),
                       SizedBox(
                         width: MediaQuery.of(context).size.width * 0.3,
-                        child: Text("CVV"),
+                        child: const Text("CVV"),
                       )
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
                   Row(
@@ -87,25 +88,32 @@ class _OrderCompleteState extends State<OrderComplete> {
                     children: [
                       SizedBox(
                         width: MediaQuery.of(context).size.width * 0.3,
-                        child: InputField(text: "MM/YY"),
+                        child: const InputField(text: "MM/YY"),
                       ),
                       SizedBox(
                         width: MediaQuery.of(context).size.width * 0.15,
                       ),
                       SizedBox(
                         width: MediaQuery.of(context).size.width * 0.3,
-                        child: InputField(text: "MM/YY"),
+                        child: const InputField(text: "MM/YY"),
                       ),
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       InkWell(
-                        onTap: deliveryDetails,
+                        onTap: () {
+                          Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const DeliveryStatus(),
+                            ),
+                          );
+                        },
                         child: const BasketButton(text: "Complete order"),
                       ),
                     ],
@@ -176,7 +184,14 @@ class _OrderCompleteState extends State<OrderComplete> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         InkWell(
-                            onTap: () {},
+                            onTap: () {
+                              Navigator.pushReplacement(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => const DeliveryStatus(),
+                                ),
+                              );
+                            },
                             child: const PrimaryOderButton(
                               text: "Pay on delivery",
                             )),
@@ -236,7 +251,7 @@ class _OrderCompleteState extends State<OrderComplete> {
               ),
               InkWell(
                 onTap: () {
-                  Navigator.push(
+                  Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(
                       builder: (context) => const HomeScreen1(),
