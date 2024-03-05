@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:food_app/Basket_screen/combo_button.dart';
-import 'package:food_app/orderlist.dart';
+import 'package:food_app/order_complete.dart';
+import 'package:food_app/order_list_screen/orderlist.dart';
+import 'package:food_app/widgets/back_button.dart';
+import 'package:food_app/widgets/basket_button.dart';
 
 class AddToBasket extends StatelessWidget {
   const AddToBasket({super.key});
@@ -18,37 +21,8 @@ class AddToBasket extends StatelessWidget {
             padding: const EdgeInsets.all(20),
             child: Column(
               children: [
-                Row(
-                  children: [
-                    Container(
-                      height: 30,
-                      width: 85,
-                      decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(10)),
-                      margin: const EdgeInsets.only(top: 40, bottom: 10),
-                      child: InkWell(
-                        onTap: () {
-                          Navigator.pop(context);
-                        },
-                        child: const Row(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            Icon(
-                              Icons.arrow_back_ios_sharp,
-                              size: 20,
-                              color: Color(0xff9390A6),
-                            ),
-                            Text(
-                              'Go Back',
-                              style: TextStyle(
-                                  fontSize: 15, color: Color(0xff9390A6)),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ],
+                const Row(
+                  children: [CustomBackButton()],
                 ),
                 SizedBox(
                   child: Image.asset("assets/images/basket_1.png"),
@@ -234,22 +208,12 @@ class AddToBasket extends StatelessWidget {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => const OrderList(),
+                                builder: (context) => const OrderComplete(),
                               ),
                             );
                           },
-                          child: Container(
-                            padding: const EdgeInsets.symmetric(
-                                horizontal: 50, vertical: 20),
-                            decoration: BoxDecoration(
-                              color: const Color(0xffFFA451),
-                              borderRadius: BorderRadius.circular(10),
-                            ),
-                            child: const Text(
-                              "Add To Basket",
-                              style:
-                                  TextStyle(color: Colors.white, fontSize: 17),
-                            ),
+                          child: const BasketButton(
+                            text: "Add To Basket",
                           ),
                         )
                       ],
