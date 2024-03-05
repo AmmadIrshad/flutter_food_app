@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:food_app/Basket_screen/combo_button.dart';
-import 'package:food_app/order_complete.dart';
-import 'package:food_app/order_list_screen/orderlist.dart';
+import 'package:food_app/order_compelete/order_complete.dart';
+
 import 'package:food_app/widgets/back_button.dart';
 import 'package:food_app/widgets/basket_button.dart';
 
